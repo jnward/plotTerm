@@ -4,7 +4,7 @@ from plotter import Plotter
 
 
 def main():
-	plot = Plotter(160, 20, debug=True)
+	plot = Plotter(60, 10, debug=True)
 
 	def callback(body):
 		print('Plotting', body.decode())

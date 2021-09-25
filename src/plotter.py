@@ -25,7 +25,7 @@ class Plotter:
         self.char_idx = 0
         self.num_cols = ((Y_HEIGHT-x_off) // EM_WIDTH) - 1
         self.debug = debug
-        self.show_offset = 60
+        self.show_offset = 40
         self.y_max = Y_HEIGHT-y_off-self.show_offset
         self.reset()
         

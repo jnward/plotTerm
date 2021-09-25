@@ -10,11 +10,11 @@ def terminal():
     while True:
         cmd = input('$ ')
         ret = run(cmd, shell=True, capture_output=True)
-        channel.basic_publish(exchange='', routing_key='plotter', body='$ ' + ret.args.lower())
+        channel.basic_publish(exchange='', routing_key='plotter', body='$ ' + ret.args.lower() + '\n')
         message = ret.stdout.decode().lower() if ret.returncode == 0 else ret.stderr.decode().lower()
         for line in message.splitlines():
             print(line)
-            channel.basic_publish(exchange='', routing_key='plotter', body=line)
+            channel.basic_publish(exchange='', routing_key='plotter', body=line + '\n')
         
 if __name__ == '__main__':
     terminal()
